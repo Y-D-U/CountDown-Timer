@@ -1,0 +1,71 @@
+<html>
+<head lang="en">
+	<title>Countdown</title>
+<style>
+	body{
+		background-image:url("https://images.unsplash.com/photo-1594560548475-1ec92e5e5285?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80");
+		background-size:cover;
+		background-position:center;
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		display-flex-direction:column;
+		color:white;
+		
+	}
+	.timer{
+		display:flex;
+		padding:3px;
+	}
+	.time{
+		padding:38px;
+	}
+
+</style>
+</head>
+
+
+
+<body>
+	<h1>COUNTDOWN</h1>
+	<div class="timer">
+
+		<div class="time" >Days :
+			<span id="days">0</span></div>
+		<div class="time" >Hours :<span id="hours">0</span></div>
+		<div class="time" >Mins :<span id="mins">0</span></div>
+		<div class="time" >Secs :<span id="secs">0</span></div>
+
+	</div>
+
+<script>
+	let date=new Date("1 Jan 2023");
+	function gettimes(){
+		let currentdate=new Date();
+		let mills=date-currentdate;
+		let tseconds=mills/1000;
+		let minutes=(tseconds/60)%60;
+		let hours=(tseconds/(60*60))%24;
+		let days=tseconds/(24*60*60);
+		let seconds=tseconds%60;
+		//console.log(seconds,minutes,hours,days);
+		const sec =document.getElementById("secs");
+		const min =document.getElementById("mins");
+		const hour =document.getElementById("hours");
+		const day =document.getElementById("days");
+		sec.innerHTML=Math.floor(seconds);
+		min.innerHTML=Math.floor(minutes);
+		hour.innerHTML=Math.floor(hours);
+		day.innerHTML=Math.floor(days);
+
+	}
+	setInterval(gettimes,1000);
+
+</script>
+
+
+
+
+
+
+</html>
